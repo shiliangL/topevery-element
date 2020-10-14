@@ -1,7 +1,7 @@
 <!--
  * @Author: shiliangL
  * @Date: 2020-10-14 10:13:13
- * @LastEditTime: 2020-10-14 16:14:20
+ * @LastEditTime: 2020-10-14 17:22:21
  * @LastEditors: Do not edit
  * @Description:
  * @FilePath: /topevery-element/src/App.vue
@@ -13,6 +13,7 @@
 </template>
 
 <script>
+
 import hljs from 'highlight.js'
 
 export default {

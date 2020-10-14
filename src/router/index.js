@@ -1,35 +1,42 @@
-/*
- * @Author: shiliangL
- * @Date: 2020-10-14 10:56:37
- * @LastEditTime: 2020-10-14 16:08:42
- * @LastEditors: Do not edit
- * @Description:
- * @FilePath: /topevery-element/src/router/index.js
- */
+// import navConfig from './nav.config'
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import hljs from 'highlight.js'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    redirect: '/button',
+    component: () => import('@/layout'),
+    children: [
+      {
+        path: 'button',
+        // component: () => import(/* webpackChunkName: "about" */ './md-docs/button.md')
+        component: r => require.ensure([], () => r(require('../../md-docs/button.md')))
+      },
+      {
+        path: '/button2',
+        // component: () => import(/* webpackChunkName: "about" */ './md-docs/button.md')
+        component: r => require.ensure([], () => r(require('../../md-docs/button2.md')))
+      }
+    ]
   }
 ]
 
 const router = new VueRouter({
   routes
+})
+
+router.afterEach(route => {
+  // https://github.com/highlightjs/highlight.js/issues/909#issuecomment-131686186
+  setTimeout(() => {
+    Vue.nextTick(() => {
+      const blocks = document.querySelectorAll('pre code:not(.hljs)')
+      Array.prototype.forEach.call(blocks, hljs.highlightBlock)
+    })
+  }, 0)
 })
 
 export default router
