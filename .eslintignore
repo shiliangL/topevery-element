@@ -6,4 +6,5 @@ lib
 *.woff
 *.ttf
 
+*.md
 packages/index.js

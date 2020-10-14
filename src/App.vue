@@ -1,42 +1,27 @@
 <!--
  * @Author: shiliangL
  * @Date: 2020-10-14 10:13:13
- * @LastEditTime: 2020-10-14 11:41:22
+ * @LastEditTime: 2020-10-14 16:14:20
  * @LastEditors: Do not edit
  * @Description:
- * @FilePath: /topevery-element-v3/src/App.vue
+ * @FilePath: /topevery-element/src/App.vue
 -->
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <div>
-      <p>
-        If Element is successfully added to this project, you'll see an
-        <code v-text="'<el-button>'" />
-        below
-      </p>
-      <el-button>el-button</el-button>
-      <cube-table />
-    </div>
+    <router-view />
   </div>
 </template>
 
 <script>
+import hljs from 'highlight.js'
 
 export default {
   name: 'App',
-  components: {
+  mounted () {
+    this.$nextTick(() => {
+      const blocks = document.querySelectorAll('pre code:not(.hljs)')
+      Array.prototype.forEach.call(blocks, hljs.highlightBlock)
+    })
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
