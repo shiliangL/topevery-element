@@ -150,9 +150,12 @@ export default {
   width: 220px;
   box-sizing: border-box;
   padding-right: 30px;
+  padding: 20px;
   transition: opacity 0.3s;
   overflow-x: hidden;
   overflow-y: auto;
+  border: solid 1px #ebebeb;
+
   &.is-fade {
     transition: opacity 3s;
   }

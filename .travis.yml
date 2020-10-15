@@ -12,7 +12,7 @@ install:
 # 代码编译
 script:
   - npm run build
-  - npm run release
+  - npm run lib
 
 # 发布配置
 deploy:

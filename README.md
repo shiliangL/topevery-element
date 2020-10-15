@@ -1,7 +1,7 @@
 <!--
  * @Author: shiliangL
  * @Date: 2020-10-14 10:13:35
- * @LastEditTime: 2020-10-14 17:57:07
+ * @LastEditTime: 2020-10-15 08:17:45
  * @LastEditors: Do not edit
  * @Description: 
  * @FilePath: /topevery-element/README.md
@@ -40,3 +40,13 @@
   }
   
 ```
+
+
+### 配置Travis自动构建部署
+
+- Github 授权配置 https://github.com/settings/tokens 并且记录 GITHUB_TOKEN 的值
+- NPM 创建一个 token 授权码，记录该授权码
+- githbub 授权访问 https://www.travis-ci.org
+- 设置 Travis 构建环境变量
+
+ 
