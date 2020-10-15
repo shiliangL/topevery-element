@@ -1,7 +1,7 @@
 /*
  * @Author: shiliangL
  * @Date: 2020-10-14 10:16:23
- * @LastEditTime: 2020-10-15 08:50:24
+ * @LastEditTime: 2020-10-15 09:22:01
  * @LastEditors: Do not edit
  * @Description:
  * @FilePath: /topevery-element/vue.config.js
@@ -10,7 +10,7 @@ const path = require('path')
 
 module.exports = {
 
-  publicPath: '/',
+  publicPath: './',
   outputDir: 'dist',
   assetsDir: 'static',
   lintOnSave: process.env.NODE_ENV === 'development',
