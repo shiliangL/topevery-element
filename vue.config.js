@@ -1,7 +1,7 @@
 /*
  * @Author: shiliangL
  * @Date: 2020-10-14 10:16:23
- * @LastEditTime: 2020-10-14 16:27:45
+ * @LastEditTime: 2020-10-15 08:50:24
  * @LastEditors: Do not edit
  * @Description:
  * @FilePath: /topevery-element/vue.config.js
@@ -10,7 +10,12 @@ const path = require('path')
 
 module.exports = {
 
-  lintOnSave: 'default', // 是否开启代码检查
+  publicPath: '/',
+  outputDir: 'dist',
+  assetsDir: 'static',
+  lintOnSave: process.env.NODE_ENV === 'development',
+  // lintOnSave: false, // 是否开启代码检查
+  productionSourceMap: false,
 
   // 修改 pages 入口
   pages: {

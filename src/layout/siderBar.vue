@@ -147,37 +147,29 @@ export default {
 
 <style lang="scss">
 .side-nav {
-  width: 220px;
+  width: 260px;
   box-sizing: border-box;
-  padding-right: 30px;
-  padding: 20px;
   transition: opacity 0.3s;
   overflow-x: hidden;
   overflow-y: auto;
-  border: solid 1px #ebebeb;
-
+  border-right: solid 1px #ebebeb;
   &.is-fade {
     transition: opacity 3s;
   }
-
   li {
     list-style: none;
   }
-
   ul {
     padding: 0;
     margin: 0;
     overflow: hidden;
   }
-
   > ul > .nav-item > a {
     margin-top: 15px;
   }
-
   > ul > .nav-item:nth-child(-n + 4) > a {
     margin-top: 0;
   }
-
   .nav-item {
     a {
       font-size: 16px;
@@ -191,27 +183,46 @@ export default {
       position: relative;
       transition: 0.15s ease-out;
       font-weight: bold;
-
       &.active {
         color: #409eff;
+        background-color: #e6f7ff;
       }
     }
 
     .nav-item {
       a {
+        padding-left: 20px;
         display: block;
-        height: 30px;
+        height: 40px;
         color: #444;
-        line-height: 30px;
+        line-height: 40px;
         font-size: 14px;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
         font-weight: normal;
-
-        &:hover,
+        &:hover{
+          color: #409eff;
+        }
         &.active {
           color: #409eff;
+          &:after {
+            transform: scaleY(1);
+            opacity: 1;
+          }
+        }
+        &:after {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          border-right: 3px solid #1890ff;
+          transform: scaleY(0.0001);
+          opacity: 0;
+          transition: opacity 0.25s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
+          transition: transform 0.25s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
+          transition: transform 0.25s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 0.25s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
+          content: "";
         }
       }
     }
@@ -229,7 +240,6 @@ export default {
 
       .nav-item {
         display: inline-block;
-
         a {
           height: auto;
           display: inline-block;
@@ -239,7 +249,6 @@ export default {
             width: 42px;
           }
         }
-
         &:first-child a img {
           width: 36px;
         }
@@ -254,6 +263,7 @@ export default {
     line-height: 26px;
     margin-top: 15px;
     font-weight: 400;
+    padding-left: 10px;
     .group__title__name {
       display: inline-block;
       position: relative;

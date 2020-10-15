@@ -1,7 +1,7 @@
 <!--
  * @Author: shiliangL
  * @Date: 2020-10-14 16:44:33
- * @LastEditTime: 2020-10-14 18:19:34
+ * @LastEditTime: 2020-10-15 08:46:00
  * @LastEditors: Do not edit
  * @Description:
  * @FilePath: /topevery-element/src/layout/index.vue
@@ -46,8 +46,8 @@ export default {
     height: 64px;
     z-index: 10;
     max-width: 100%;
-    background: #fff;
-    -webkit-box-shadow: 0 2px 8px #f0f1f2;
+    background: #000000;
+    color: #ffffff;
     box-shadow: 0 2px 8px #f0f1f2;
   }
 
