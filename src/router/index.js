@@ -13,12 +13,12 @@ const routes = [
     children: [
       {
         path: 'button',
-        component: () => import(/* webpackChunkName: "about" */ './md-docs/button.md')
+        component: () => import(/* webpackChunkName: "about" */ '../../md-docs/button.md')
         // component: r => require.ensure([], () => r(require('../../md-docs/button.md')))
       },
       {
         path: '/button2',
-        component: () => import(/* webpackChunkName: "about2" */ './md-docs/button2.md')
+        component: () => import(/* webpackChunkName: "about2" */ '../../md-docs/button2.md')
         // component: r => require.ensure([], () => r(require('../../md-docs/button2.md')))
       }
     ]
