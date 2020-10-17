@@ -1,17 +1,16 @@
 <!--
  * @Author: shiliangL
  * @Date: 2020-10-14 16:44:33
- * @LastEditTime: 2020-10-15 08:46:00
+ * @LastEditTime: 2020-10-15 09:47:12
  * @LastEditors: Do not edit
  * @Description:
  * @FilePath: /topevery-element/src/layout/index.vue
 -->
 <template>
   <div class="layout">
-    <header class="clearfix header">
-    </header>
+    <headerBar />
     <div class="main-wrapper">
-      <siderBar :data="navsData['zh-CN']"></siderBar>
+      <siderBar :data="navsData"></siderBar>
       <div class="main-content">
         <router-view class="content" />
       </div>
@@ -23,14 +22,16 @@
 
 import navsData from '../../nav.config.json'
 import siderBar from './siderBar'
+import headerBar from './headerBar'
 
 export default {
   components: {
-    siderBar
+    siderBar,
+    headerBar
   },
   data () {
     return {
-      navsData
+      navsData: navsData['component-list']
     }
   }
 }
@@ -41,19 +42,10 @@ export default {
   height: 100%;
   overflow: hidden;
 
-  .header {
-    position: relative;
-    height: 64px;
-    z-index: 10;
-    max-width: 100%;
-    background: #000000;
-    color: #ffffff;
-    box-shadow: 0 2px 8px #f0f1f2;
-  }
-
   .main-content {
     flex: 1;
     padding: 20px;
+    margin-bottom: 60px;
     overflow-x: hidden;
     overflow-y: auto;
   }

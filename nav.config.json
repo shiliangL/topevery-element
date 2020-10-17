@@ -1,19 +1,39 @@
 {
-    "zh-CN": [
+    "component-list": [
       {
-        "name": "组件",
+        "name": "cube",
         "groups": [
           {
-            "groupName": "Basic",
+            "groupName": "cube组件",
             "list": [
+              {
+                "path": "/example",
+                "title": "开发样例",
+                "views": true
+              },
               {
                 "path": "/button",
                 "title": "Button 按钮"
               },
               {
-                "path": "/button2",
-                "title": "Button 按钮2"
+                "path": "/cube-search-bar",
+                "title": "cube-search-bar"
+              },
+              {
+                "path": "/cube-table",
+                "title": "cube-table"
               }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "element",
+        "groups": [
+          {
+            "groupName": "element组件",
+            "list": [
+             
             ]
           }
         ]

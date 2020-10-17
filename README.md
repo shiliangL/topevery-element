@@ -1,7 +1,7 @@
 <!--
  * @Author: shiliangL
  * @Date: 2020-10-14 10:13:35
- * @LastEditTime: 2020-10-15 08:17:45
+ * @LastEditTime: 2020-10-17 11:39:16
  * @LastEditors: Do not edit
  * @Description: 
  * @FilePath: /topevery-element/README.md
@@ -49,4 +49,6 @@
 - githbub 授权访问 https://www.travis-ci.org
 - 设置 Travis 构建环境变量
 
- 
+### 开始项目支持jsx
+
+npm install babel-plugin-syntax-jsx babel-plugin-transform-vue-jsx babel-helper-vue-jsx-merge-props babel-preset-env --save-dev

@@ -1,3 +1,4 @@
 {
+    "cube-search-bar": "./packages/cube-search-bar/index.js",
     "cube-table": "./packages/cube-table/index.js"
 }
