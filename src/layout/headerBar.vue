@@ -1,15 +1,15 @@
 <!--
  * @Author: shiliangL
  * @Date: 2020-10-15 09:46:14
- * @LastEditTime: 2020-10-17 10:27:04
+ * @LastEditTime: 2020-10-17 22:59:52
  * @LastEditors: Do not edit
  * @Description:
- * @FilePath: /topevery-element/src/layout/headerBar.vue
+ * @FilePath: /topevery-element-pro/src/layout/headerBar.vue
 -->
 <template>
   <header class="clearfix header">
     <div class="header-logo">
-      TOPEVERY-ELEMENT
+      <img src="~@/assets/logo.png" style="height: 54px;" alt="">
     </div>
     <div v-if="0" class="header-nav">
       <div class="header-nav-item">
@@ -45,8 +45,7 @@ export default {
   z-index: 10;
   display: flex;
   max-width: 100%;
-  background: #000000;
-  color: #ffffff;
+  background: #ffffff;
   box-shadow: 0 2px 8px #f0f1f2;
   align-items: center;
   .header-logo {

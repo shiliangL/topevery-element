@@ -4,24 +4,24 @@
         "name": "cube",
         "groups": [
           {
-            "groupName": "cube组件",
+            "groupName": "cube 组件",
             "list": [
+              {
+                "path": "/cube-search-bar",
+                "title": "cube-search-bar 组件"
+              },
+              {
+                "path": "/cube-table",
+                "title": "cube-table 表格"
+              },
+              {
+                "path": "/cube-table-list",
+                "title": "cube-table-list 组件"
+              },
               {
                 "path": "/example",
                 "title": "开发样例",
                 "views": true
-              },
-              {
-                "path": "/button",
-                "title": "Button 按钮"
-              },
-              {
-                "path": "/cube-search-bar",
-                "title": "cube-search-bar"
-              },
-              {
-                "path": "/cube-table",
-                "title": "cube-table"
               }
             ]
           }
@@ -31,9 +31,36 @@
         "name": "element",
         "groups": [
           {
-            "groupName": "element组件",
+            "groupName": "element 组件",
             "list": [
-             
+              {
+                "path": "/button",
+                "title": "Button 按钮"
+              },
+              {
+                "path": "/input",
+                "title": "input 输入框"
+              },
+              {
+                "path": "/select",
+                "title": "select 选择器"
+              },
+              {
+                "path": "/cascader",
+                "title": "cascader 级联"
+              },
+              {
+                "path": "/date-picker",
+                "title": "date-picker 日期选择"
+              },
+              {
+                "path": "/datetime-picker",
+                "title": "datetime-picker 日期时间"
+              },
+              {
+                "path": "/table",
+                "title": "el-table 表格"
+              }
             ]
           }
         ]

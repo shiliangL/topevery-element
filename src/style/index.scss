@@ -2,11 +2,14 @@ html,
 body {
     margin: 0;
     padding: 0;
+    font-size: 12px;
+    line-height: 1.5;
     height: 100%;
     font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', SimSun, sans-serif;
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -webkit-tap-highlight-color: transparent;
+
     &.is-component {
         overflow: hidden;
     }
@@ -14,8 +17,10 @@ body {
 
 #app {
     height: 100%;
+    font-size: 14px;
     &.is-component {
         overflow-y: hidden;
+
         .main-cnt {
             padding: 0;
             margin-top: 0;
@@ -59,7 +64,7 @@ textarea {
     padding: 20px;
     border-radius: 4px;
     -webkit-font-smoothing: auto;
-  }
+}
 
 .main-cnt {
     margin-top: -80px;

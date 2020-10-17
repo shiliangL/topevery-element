@@ -1,9 +1,11 @@
 <!-- CubeTable  组件 - 表格 -->
 <template>
-  <!-- v-loading="loading" -->
   <el-table
+    v-loading="loading"
     slot="table"
     :ref="name"
+    v-bind="$attrs"
+    v-on="$listeners"
     v-loadMore="loadMore"
     :row-key="rowKey"
     class="cube-table"
@@ -141,7 +143,6 @@ export default {
         delete el.__scrollTableEvent__
       }
     }
-    // loading: Loading.directive
   },
   components: {
     ElTable: Table,
@@ -352,9 +353,12 @@ export default {
       const TableSelection = this.$refs[this.name].selection || []
       return deepClone(TableSelection)
     },
-    setCurrent (row) {
+    setCurrentRow (row) {
       this.$refs[this.name] && this.$refs[this.name].setCurrentRow(row)
-      this.tableRowClick(row)
+      this.$emit('tableRowClick', row)
+    },
+    toggleRowSelection (row, selected) {
+      this.$refs[this.name] && this.$refs[this.name].toggleRowSelection(row, selected)
     },
     // 这个东西需要配合 rowKey
     expandChange (row, expandedRows) {
@@ -374,6 +378,7 @@ export default {
     },
     tableRowClick (row) {
       this.$emit('tableRowClick', row)
+      this.$refs[this.name] && this.$refs[this.name].toggleRowSelection(row)
     },
     dbtableRowClick (row) {
       this.$emit('dbtableRowClick', row)
