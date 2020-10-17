@@ -1,10 +1,10 @@
 /*
  * @Author: shiliangL
  * @Date: 2020-10-14 10:16:23
- * @LastEditTime: 2020-10-15 09:22:01
+ * @LastEditTime: 2020-10-17 17:36:04
  * @LastEditors: Do not edit
  * @Description:
- * @FilePath: /topevery-element/vue.config.js
+ * @FilePath: /topevery-element-pro/vue.config.js
  */
 const path = require('path')
 
@@ -34,15 +34,15 @@ module.exports = {
       .set('~', path.resolve('packages'))
       .set('~md', path.resolve('md-docs'))
     // 把 packages 加入编译，因为新增的文件默认是不被 webpack 处理的
-    config.module
-      .rule('js')
-      .include.add(/packages/).end()
-      .use('babel')
-      .loader('babel-loader')
-      .tap(options => {
-        // 修改它的选项...
-        return options
-      })
+    // config.module
+    //   .rule('js')
+    //   .include.add(/packages/).end()
+    //   .use('babel')
+    //   .loader('babel-loader')
+    //   .tap(options => {
+    //     // 修改它的选项...
+    //     return options
+    //   })
     // 解析Markdown文件转成vue组件
     config.module
       .rule('md')
