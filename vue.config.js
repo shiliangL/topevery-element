@@ -1,7 +1,7 @@
 /*
  * @Author: shiliangL
  * @Date: 2020-10-14 10:16:23
- * @LastEditTime: 2020-10-17 17:36:04
+ * @LastEditTime: 2020-10-18 20:17:52
  * @LastEditors: Do not edit
  * @Description:
  * @FilePath: /topevery-element-pro/vue.config.js
@@ -25,7 +25,6 @@ module.exports = {
       filename: 'index.html' // 输出文件
     }
   },
-
   // 扩展 webpack 配置
   chainWebpack: config => {
     // @ 默认指向 src 目录
@@ -58,5 +57,23 @@ module.exports = {
       .use('markdown-loader')
       .loader(require('path').resolve(__dirname, './scripts/md-loader/index.js'))
       .end()
+
+    // config.optimization.splitChunks({
+    //   chunks: 'all',
+    //   maxInitialRequests: Infinity,
+    //   // 依赖包超过300000bit将被单独打包
+    //   minSize: 300000,
+    //   automaticNameDelimiter: '-',
+    //   cacheGroups: {
+    //     vendor: {
+    //       test: /[\\/]node_modules[\\/]/,
+    //       name (module) {
+    //         const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1]
+    //         return `chunk.${packageName.replace('@', '')}`
+    //       },
+    //       priority: 10
+    //     }
+    //   }
+    // })
   }
 }

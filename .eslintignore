@@ -8,3 +8,6 @@ lib
 
 *.md
 packages/index.js
+
+dist
+lib
