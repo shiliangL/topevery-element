@@ -152,7 +152,11 @@ export default {
   transition: opacity 0.3s;
   overflow-x: hidden;
   overflow-y: auto;
+  padding-bottom: 80px;
   border-right: solid 1px #ebebeb;
+  &::-webkit-scrollbar {
+    display: none;
+  }
   &.is-fade {
     transition: opacity 3s;
   }
@@ -201,7 +205,7 @@ export default {
         white-space: nowrap;
         text-overflow: ellipsis;
         font-weight: normal;
-        &:hover{
+        &:hover {
           color: #409eff;
         }
         &.active {
@@ -219,9 +223,13 @@ export default {
           border-right: 3px solid #1890ff;
           transform: scaleY(0.0001);
           opacity: 0;
-          transition: opacity 0.25s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
-          transition: transform 0.25s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
-          transition: transform 0.25s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 0.25s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
+          transition: opacity 0.25s cubic-bezier(0.215, 0.61, 0.355, 1),
+            -webkit-transform 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
+          transition: transform 0.25s cubic-bezier(0.215, 0.61, 0.355, 1),
+            opacity 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
+          transition: transform 0.25s cubic-bezier(0.215, 0.61, 0.355, 1),
+            opacity 0.25s cubic-bezier(0.215, 0.61, 0.355, 1),
+            -webkit-transform 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
           content: "";
         }
       }

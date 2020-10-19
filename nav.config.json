@@ -7,8 +7,24 @@
             "groupName": "cube 组件",
             "list": [
               {
+                "path": "/cube-select",
+                "title": "cube-select 下拉选择"
+              },
+              {
+                "path": "/cube-select-bar",
+                "title": "cube-select-bar 静态选择"
+              },
+              {
+                "path": "/cube-select-tree",
+                "title": "cube-select-tree 树形选择"
+              },
+              {
+                "path": "/cube-cascader",
+                "title": "cube-cascader cube级联"
+              },
+              {
                 "path": "/cube-search-bar",
-                "title": "cube-search-bar 组件"
+                "title": "cube-search-bar 搜索组件"
               },
               {
                 "path": "/cube-table",

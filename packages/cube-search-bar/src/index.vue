@@ -28,6 +28,7 @@
               :clearable="item.clearable"
               :placeholder="item.placeholder|| '请输入'"
               @keyup.enter.native="search"
+              @change="item.change ?item.change($event): null"
             />
           </template>
 
@@ -94,6 +95,7 @@
               type="date"
               :value-format="item.format || 'yyyy-MM-dd'"
               :placeholder="item.placeholder|| '请选择'"
+              @change="item.change ?item.change($event): null"
             />
           </template>
 
@@ -102,6 +104,7 @@
             <el-date-picker
               v-model="item.value"
               :size="size"
+              :clearable="item.clearable"
               type="daterange"
               range-separator="至"
               :picker-options="item.pickerOptions||daterangePickerOptions"
@@ -109,6 +112,7 @@
               :value-format="item.format || 'yyyy-MM-dd'"
               :start-placeholder="item.placeholder1||'开始日期'"
               :end-placeholder="item.placeholder2||'结束日期'"
+              @change="item.change ?item.change($event): null"
             />
           </template>
 
@@ -117,6 +121,7 @@
             <el-date-picker
               v-model="item.value"
               :size="size"
+              :clearable="item.clearable"
               type="datetimerange"
               range-separator="至"
               :picker-options="item.pickerOptions||{}"
@@ -124,6 +129,7 @@
               :value-format="item.format || 'yyyy-MM-dd HH:mm:ss'"
               :start-placeholder="item.placeholder1"
               :end-placeholder="item.placeholder2"
+              @change="item.change ?item.change($event): null"
             />
           </template>
 
@@ -132,6 +138,7 @@
             <el-date-picker
               v-model="item.value"
               :size="size"
+              :clearable="item.clearable"
               type="monthrange"
               range-separator="至"
               :picker-options="item.pickerOptions|| monthrangePickerOptions"
@@ -139,6 +146,7 @@
               :value-format="item.format || 'yyyy-MM'"
               :start-placeholder="item.placeholder1||'开始月份'"
               :end-placeholder="item.placeholder2||'结束结束'"
+              @change="item.change ?item.change($event): null"
             />
           </template>
 
@@ -147,7 +155,7 @@
               :type="item.buttonType ? item.buttonType : 'primary'"
               :icon="item.icon ? item.icon : 'el-icon-search'"
               :size="size"
-              @click="search"
+              @click="item.click ?item.click(): search"
             >
               {{ item.name }}
             </el-button>
@@ -158,7 +166,7 @@
               :icon="item.icon ? item.icon : 'el-icon-refresh'"
               plain
               :size="size"
-              @click="clickReset"
+              @click="item.click ?item.click(): clickReset"
             >
               {{ item.name }}
             </el-button>
@@ -178,7 +186,7 @@
                 :size="size"
                 type="success"
                 icon="el-icon-plus"
-                @click.stop="item.action ? item.action() :clickAdd(item)"
+                @click.stop="item.click ? item.click() :clickAdd(item)"
               >
                 {{ item.name ? item.name : '新增' }}
               </el-button>
@@ -189,7 +197,7 @@
                 :size="size"
                 type="danger"
                 icon="el-icon-delete"
-                @click.stop="item.action ? item.action() :clickDel(item)"
+                @click.stop="item.click ? item.click() :clickDel(item)"
               >
                 删除
               </el-button>
@@ -369,6 +377,8 @@ export default {
         const items = this.data[0]
         for (let i = 0; i < items.length; i++) {
           const item = items[i]
+          // 初始化 fix 配置中无value导致无法同步视图
+          item.value = ''
           if (item.initValue) {
             item.value = item.initValue
           }

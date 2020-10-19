@@ -2,6 +2,9 @@
 <template>
   <el-table
     v-loading="loading"
+    :element-loading-text="loadingText"
+    element-loading-spinner="el-icon-loading"
+    element-loading-background="rgba(242, 248, 254, 0.9)"
     slot="table"
     :ref="name"
     v-bind="$attrs"
@@ -17,7 +20,6 @@
     :size="size"
     :max-height="maxHeight"
     :highlight-current-row="highlightCurrentRow"
-    :element-loading-text="loadingText"
     :row-style="rowStyle"
     :header-cell-style="tableHeaderStyle"
     :row-class-name="rowClassName"
