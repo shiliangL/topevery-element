@@ -134,7 +134,6 @@ export default {
     color: #666;
     word-break: break-word;
     margin: 10px;
-    margin-bottom: 0;
     background-color: #fff;
     p {
       margin: 0;

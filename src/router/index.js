@@ -1,10 +1,10 @@
 /*
  * @Author: shiliangL
  * @Date: 2020-10-14 10:56:37
- * @LastEditTime: 2020-10-17 11:14:56
+ * @LastEditTime: 2020-10-19 13:50:20
  * @LastEditors: Do not edit
  * @Description:
- * @FilePath: /topevery-element/src/router/index.js
+ * @FilePath: /topevery-element-pro/src/router/index.js
  */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
@@ -37,7 +37,7 @@ navConfig['component-list'].forEach(item => {
 const routes = [
   {
     path: '/',
-    redirect: '/button',
+    redirect: '/cube-select',
     component: () => import('@/layout'),
     children: [
       ...componentRoutes

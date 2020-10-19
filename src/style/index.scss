@@ -7,6 +7,7 @@ body {
     height: 100%;
     font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', SimSun, sans-serif;
     font-weight: 400;
+    color: #5D5D5D;
     -webkit-font-smoothing: antialiased;
     -webkit-tap-highlight-color: transparent;
 
@@ -18,6 +19,7 @@ body {
 #app {
     height: 100%;
     font-size: 14px;
+
     &.is-component {
         overflow-y: hidden;
 
@@ -156,6 +158,25 @@ textarea {
 
 .demo {
     margin: 20px 0;
+}
+
+
+.element-doc {
+    width: 870px;
+    margin: 0 auto;
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: #fff;
+        font-size: 14px;
+
+        td {
+            border-bottom: 1px solid #dcdfe6;
+            padding: 8px 0;
+            max-width: 250px;
+        }
+    }
 }
 
 @media (max-width: 1140px) {

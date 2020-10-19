@@ -1,7 +1,7 @@
 <!--
  * @Author: shiliangL
  * @Date: 2020-10-15 09:46:14
- * @LastEditTime: 2020-10-19 10:13:36
+ * @LastEditTime: 2020-10-19 14:40:27
  * @LastEditors: Do not edit
  * @Description:
  * @FilePath: /topevery-element-pro/src/layout/headerBar.vue
@@ -24,7 +24,7 @@
         v-for="(item,index) in list"
         :key="index"
       >
-        <sapn v-text="item.text"></sapn>
+        <span v-text="item.text"></span>
       </div>
     </div>
   </header>

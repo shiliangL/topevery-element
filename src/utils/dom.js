@@ -3,6 +3,7 @@
 import Vue from 'vue'
 
 const isServer = Vue.prototype.$isServer
+// eslint-disable-next-line no-useless-escape
 const SPECIAL_CHARS_REGEXP = /([\:\-\_]+(.))/g
 const MOZ_HACK_REGEXP = /^moz([A-Z])/
 const ieVersion = isServer ? 0 : Number(document.documentMode)
@@ -159,6 +160,7 @@ export function setStyle (element, styleName, value) {
 
   if (typeof styleName === 'object') {
     for (var prop in styleName) {
+      // eslint-disable-next-line no-prototype-builtins
       if (styleName.hasOwnProperty(prop)) {
         setStyle(element, prop, styleName[prop])
       }
