@@ -1,7 +1,7 @@
 <!--
  * @Author: shiliangL
  * @Date: 2020-10-14 10:13:35
- * @LastEditTime: 2020-10-17 17:58:58
+ * @LastEditTime: 2020-10-20 15:32:47
  * @LastEditors: Do not edit
  * @Description: 
  * @FilePath: /topevery-element-pro/README.md
@@ -50,3 +50,17 @@
 - 设置 Travis 构建环境变量
 
 ### 开始项目支持jsx vue-cli3 默认支持了
+
+
+### 列表组件
+
+```
+
+组件创建 - action - 搜索栏参数 + 分页参数
+搜索栏 - action - 搜索栏参数 + 分页参数 = 1
+分页 - action - 搜索栏参数 + 分页参数 = 1分页参数
+
+触发 分页改变 ---》 搜索栏参数 + 分页参数
+搜索栏搜索 触发 ---》 搜索栏参数 + 分页参数 = 1 
+
+```

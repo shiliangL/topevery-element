@@ -7,6 +7,11 @@
             "groupName": "cube 组件",
             "list": [
               {
+                "path": "/example",
+                "title": "开发样例",
+                "views": true
+              },
+              {
                 "path": "/cube-select",
                 "title": "cube-select 下拉选择"
               },
@@ -33,9 +38,19 @@
               {
                 "path": "/cube-table-list",
                 "title": "cube-table-list 组件"
-              },
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "datav",
+        "groups": [
+          {
+            "groupName": "datav",
+            "list": [
               {
-                "path": "/example",
+                "path": "/example-datav",
                 "title": "开发样例",
                 "views": true
               }

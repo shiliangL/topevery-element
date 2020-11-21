@@ -47,6 +47,7 @@
             label="序号"
             type="index"
             :index="indexMethod"
+            v-if="defaultConfig.showIndex"
           />
           <el-table-column
             v-for="(item,index) in defaultConfig.column"
@@ -183,6 +184,7 @@ export default {
         tableHeight: 250,
         headerAlign: 'center',
         showHeader: true, // 是否显示表头
+        showIndex: true, // 是否显示表头
         column: [
           { key: 'name', label: '名称' },
           { key: 'code', label: '编码' }

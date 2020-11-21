@@ -37,15 +37,15 @@
           return {
             cubeSelect:'',
             config:{
-                keyName: 'code',
-                keyCode: 'sectionId',
+                keyName: 'name',
+                keyCode: 'personId',
                 method: 'GET',
-                url: '/static/section.json',
+                url: '/page',
                 searchName: 'sectionName',
                 placeholder: '标段选择-分页',
                 column: [ //仅仅作为展示用户使用
-                    { key: 'code', label: '名称' },
-                    { key: 'statusStr', label: '状态' }
+                    { key: 'name', label: '名称' },
+                    { key: 'permanentAddress', label: '地址' }
                 ]
             }
           }
@@ -79,15 +79,15 @@
                 type:1
             },
             config:{
-                keyName: 'code',
-                keyCode: 'sectionId',
+                keyName: 'name',
+                keyCode: 'personId',
                 method: 'GET',
-                url: '/static/section.json',
+                url: '/page',
                 searchName: 'sectionName',
                 placeholder: '标段选择-分页',
                 column: [ //仅仅作为展示用户使用
-                    { key: 'code', label: '名称' },
-                    { key: 'statusStr', label: '状态' }
+                    { key: 'name', label: '名称' },
+                    { key: 'permanentAddress', label: '地址' }
                 ]
             }
           }
@@ -121,15 +121,15 @@
                 type:1
             },
             config:{
-                keyName: 'code',
-                keyCode: 'sectionId',
+                keyName: 'name',
+                keyCode: 'personId',
                 method: 'GET',
-                url: '/static/section.json',
+                url: '/page',
                 searchName: 'sectionName',
                 placeholder: '标段选择-分页',
                 column: [ //仅仅作为展示用户使用
-                    { key: 'code', label: '名称' },
-                    { key: 'statusStr', label: '状态' }
+                    { key: 'name', label: '名称' },
+                    { key: 'permanentAddress', label: '地址' }
                 ]
             }
           }
@@ -168,14 +168,14 @@
           return {
             cubeSelect:'',
             config:{
-                keyName: 'code',
+                keyName: 'name',
                 keyCode: 'sectionId',
                 placeholder: '标段选择-不分页',
                 isNoPage: true, //设置不分页
                 isStaticOptions: true, // 设置为静态属性使用,
                 options: [], // 外部传入的 options
                 column: [ //仅仅作为展示用户使用
-                    { key: 'code', label: '名称' },
+                    { key: 'name', label: '名称' },
                     { key: 'statusStr', label: '状态' }
                 ]
             }
@@ -184,7 +184,13 @@
     mounted() {
         //模拟插入数据 静态 options 同步或者异步都可以 如下模拟异步
         setTimeout(_=>{
-            this.config.options = this.$mockSection.records
+             this.config.options = [
+                {
+                    "name":"深圳市南山区101号",
+                    "statusStr":"在合约",
+                    "sectionId":"80DDEC81-5641-472F-8C6E-8A5DAE3D58E9"
+                }
+            ]
         }, 2000);
     },
   }
@@ -214,7 +220,7 @@
           return {
             cubeSelect:'',
             config:{
-                keyName: 'code',
+                keyName: 'name',
                 keyCode: 'sectionId',
                 placeholder: '标段选择-不分页',
                 isNoPage: true, //设置不分页
@@ -222,7 +228,7 @@
                 options: [], // 外部传入的 options
                 popoverWidth: 400, // 弹层宽度
                 column: [ //仅仅作为展示用户使用
-                    { key: 'code', label: '名称' },
+                    { key: 'name', label: '名称' },
                     { key: 'companyName', label: '责任单位' },
                     { key: 'statusStr', label: '状态' }
                 ]
@@ -232,7 +238,14 @@
     mounted() {
         //模拟插入数据 静态 options 同步或者异步都可以 如下模拟异步
         setTimeout(_=>{
-            this.config.options = this.$mockSection.records
+             this.config.options = [
+                {
+                    "name":"深圳市南山区101号",
+                    "companyName":"TX科技有限公司",
+                    "statusStr":"合格",
+                    "sectionId":"80DDEC81-5641-472F-8C6E-8A5DAE3D58E9"
+                }
+            ]
         }, 2000);
     },
   }
@@ -280,7 +293,12 @@
     mounted() {
         //模拟插入数据 静态 options 同步或者异步都可以 如下模拟异步
         setTimeout(_=>{
-            this.config.options = this.$mockSection.records
+            this.config.options = [
+                {
+                    "name":"深圳市南山区101号",
+                    "sectionId":"80DDEC81-5641-472F-8C6E-8A5DAE3D58E9"
+                }
+            ]
         }, 2000);
     },
   }
@@ -308,17 +326,16 @@
   export default {
       data() {
           return {
-            cubeSelect: { "sectionId": "80DDEC81-5641-472F-8C6E-8A5DAE3D58E9", "code": "翠屏区环卫一所" } ,
+            cubeSelect: { "sectionId": "80DDEC81-5641-472F-8C6E-8A5DAE3D58E9", "name": "翠屏区环卫一所" } ,
             config:{
-                keyName: 'code',
+                keyName: 'name',
                 keyCode: 'sectionId',
                 placeholder: '标段选择-不分页',
                 isNoPage: true, //设置不分页
                 isStaticOptions: true, // 设置为静态属性使用,
                 options: [], // 外部传入的 options
                 column: [ //仅仅作为展示用户使用
-                    { key: 'code', label: '名称' },
-                    { key: 'companyName', label: '责任单位' },
+                    { key: 'name', label: '名称' },
                 ]
             }
           }
@@ -326,7 +343,12 @@
     mounted() {
         //模拟插入数据 静态 options 同步或者异步都可以 如下模拟异步
         setTimeout(_=>{
-            this.config.options = this.$mockSection.records
+            this.config.options = [
+                {
+                    "name":"深圳市南山区101号",
+                    "sectionId":"80DDEC81-5641-472F-8C6E-8A5DAE3D58E9"
+                }
+            ]
         }, 2000);
     },
   }
@@ -352,6 +374,7 @@
         isNoPage: false, // 是否是分页 默认是分页
         tableHeight: 250, // 弹窗选择表格高度
         showHeader: true, // 是否显示表头
+        showIndex: true, // 是否显表格index
         headerAlign: 'center', // 表头对齐方式
         column: [ // 自定义表格显示内容
           { key: 'name', label: '名称' },
