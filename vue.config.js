@@ -1,7 +1,7 @@
 /*
  * @Author: shiliangL
  * @Date: 2020-10-14 10:16:23
- * @LastEditTime: 2020-10-18 20:17:52
+ * @LastEditTime: 2020-11-21 11:40:27
  * @LastEditors: Do not edit
  * @Description:
  * @FilePath: /topevery-element-pro/vue.config.js
@@ -10,7 +10,7 @@ const path = require('path')
 
 module.exports = {
 
-  publicPath: './',
+  publicPath: '/',
   outputDir: 'dist',
   assetsDir: 'static',
   lintOnSave: process.env.NODE_ENV === 'development',
@@ -58,22 +58,22 @@ module.exports = {
       .loader(require('path').resolve(__dirname, './scripts/md-loader/index.js'))
       .end()
 
-    // config.optimization.splitChunks({
-    //   chunks: 'all',
-    //   maxInitialRequests: Infinity,
-    //   // 依赖包超过300000bit将被单独打包
-    //   minSize: 300000,
-    //   automaticNameDelimiter: '-',
-    //   cacheGroups: {
-    //     vendor: {
-    //       test: /[\\/]node_modules[\\/]/,
-    //       name (module) {
-    //         const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1]
-    //         return `chunk.${packageName.replace('@', '')}`
-    //       },
-    //       priority: 10
-    //     }
-    //   }
-    // })
+    config.optimization.splitChunks({
+      chunks: 'all',
+      maxInitialRequests: Infinity,
+      // 依赖包超过300000bit将被单独打包
+      minSize: 300000,
+      automaticNameDelimiter: '-',
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name (module) {
+            const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1]
+            return `chunk.${packageName.replace('@', '')}`
+          },
+          priority: 10
+        }
+      }
+    })
   }
 }
