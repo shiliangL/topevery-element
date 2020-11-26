@@ -1,20 +1,26 @@
-/*
- * @Author: shiliangL
- * @Date: 2020-10-14 10:16:23
- * @LastEditTime: 2020-11-26 12:40:41
- * @LastEditors: Do not edit
- * @Description:
- * @FilePath: /topevery-element-pro/vue.config.js
- */
+const fs = require('fs')
 const path = require('path')
-
-module.exports = {
-
-  publicPath: '/',
-  outputDir: 'dist',
-  assetsDir: 'static',
-  lintOnSave: process.env.NODE_ENV === 'development',
-  productionSourceMap: false,
+function resolve (dir) {
+  return path.resolve(__dirname, dir)
+}
+const join = path.join
+function getEntries (path) {
+  const files = fs.readdirSync(resolve(path))
+  const entries = files.reduce((ret, item) => {
+    const itemPath = join(path, item)
+    const isDir = fs.statSync(itemPath).isDirectory()
+    if (isDir) {
+      ret[item] = resolve(join(itemPath, 'index.js'))
+    } else {
+      const [name] = item.split('.')
+      ret[name] = resolve(`${itemPath}`)
+    }
+    return ret
+  }, {})
+  return entries
+}
+// 开发环境配置
+const devConfig = {
   // 修改 pages 入口
   pages: {
     index: {
@@ -23,9 +29,17 @@ module.exports = {
       filename: 'index.html' // 输出文件
     }
   },
-  // 扩展 webpack 配置
+  configureWebpack: {
+    resolve: {
+      extensions: ['.js', '.vue', '.json'],
+      alias: {
+        '@': resolve('src'),
+        main: resolve('src'),
+        packages: resolve('packages')
+      }
+    }
+  },
   chainWebpack: config => {
-    // @ 默认指向 src 目录
     // 新增一个 ~ 指向 packages
     config.resolve.alias
       .set('@', path.resolve('src'))
@@ -33,16 +47,17 @@ module.exports = {
       .set('packages', path.resolve('packages'))
       .set('~', path.resolve('packages'))
       .set('~md', path.resolve('md-docs'))
-    // 把 packages 加入编译，因为新增的文件默认是不被 webpack 处理的
+
     // config.module
     //   .rule('js')
-    //   .include.add(/packages/).end()
+    //   .include.add('/packages')
+    //   .end()
     //   .use('babel')
     //   .loader('babel-loader')
     //   .tap(options => {
-    //     // 修改它的选项...
     //     return options
     //   })
+
     // 解析Markdown文件转成vue组件
     config.module
       .rule('md')
@@ -58,22 +73,68 @@ module.exports = {
       .use('markdown-loader')
       .loader(require('path').resolve(__dirname, './scripts/md-loader/index.js'))
       .end()
-    // config.optimization.splitChunks({
-    //   chunks: 'all',
-    //   maxInitialRequests: Infinity,
-    //   // 依赖包超过300000bit将被单独打包
-    //   minSize: 300000,
-    //   automaticNameDelimiter: '-',
-    //   cacheGroups: {
-    //     vendor: {
-    //       test: /[\\/]node_modules[\\/]/,
-    //       name (module) {
-    //         const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1]
-    //         return `chunk.${packageName.replace('@', '')}`
-    //       },
-    //       priority: 10
-    //     }
-    //   }
-    // })
+  },
+  devServer: {
+    port: 8090,
+    hot: true,
+    open: 'Google Chrome'
   }
 }
+// 生成环境配置
+const buildConfig = {
+  css: {
+    sourceMap: false,
+    extract: {
+      filename: 'style/[name].css'
+    }
+  },
+  configureWebpack: {
+    entry: {
+      ...getEntries('packages'),
+      index: './src/index.js'
+    },
+    output: {
+      filename: '[name]/index.js',
+      libraryTarget: 'commonjs2'
+    }
+  },
+  chainWebpack: config => {
+    // 新增一个 ~ 指向 packages
+    config.resolve.alias
+      .set('@', path.resolve('src'))
+      .set('main', path.resolve('src'))
+      .set('packages', path.resolve('packages'))
+      .set('~', path.resolve('packages'))
+      .set('~md', path.resolve('md-docs'))
+
+    config.module
+      .rule('js')
+      .include.add('/packages')
+      .end()
+      .use('babel')
+      .loader('babel-loader')
+      .tap(options => {
+        return options
+      })
+    config.optimization.delete('splitChunks')
+    config.plugins.delete('copy')
+    config.plugins.delete('html')
+    config.plugins.delete('preload')
+    config.plugins.delete('prefetch')
+    config.plugins.delete('hmr')
+    config.entryPoints.delete('app')
+
+    config.module
+      .rule('fonts')
+      .use('url-loader')
+      .tap(option => {
+        option.fallback.options.name = 'static/fonts/[name].[hash:8].[ext]'
+        return option
+      })
+  },
+  outputDir: 'lib',
+  productionSourceMap: false
+}
+
+module.exports =
+  process.env.NODE_ENV === 'development' ? devConfig : buildConfig
