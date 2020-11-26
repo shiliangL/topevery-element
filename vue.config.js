@@ -1,7 +1,7 @@
 /*
  * @Author: shiliangL
  * @Date: 2020-10-14 10:16:23
- * @LastEditTime: 2020-11-25 21:28:21
+ * @LastEditTime: 2020-11-26 11:28:05
  * @LastEditors: Do not edit
  * @Description:
  * @FilePath: /topevery-element-pro/vue.config.js
@@ -14,9 +14,7 @@ module.exports = {
   outputDir: 'dist',
   assetsDir: 'static',
   lintOnSave: process.env.NODE_ENV === 'development',
-  // lintOnSave: false, // 是否开启代码检查
   productionSourceMap: false,
-
   // 修改 pages 入口
   pages: {
     index: {
@@ -58,7 +56,6 @@ module.exports = {
       .use('markdown-loader')
       .loader(require('path').resolve(__dirname, './scripts/md-loader/index.js'))
       .end()
-
     // config.optimization.splitChunks({
     //   chunks: 'all',
     //   maxInitialRequests: Infinity,

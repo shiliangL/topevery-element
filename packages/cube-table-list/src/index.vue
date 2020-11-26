@@ -101,7 +101,7 @@ export default {
       default: () => { }
     }
   },
-  data() {
+  data () {
     return {
       name: 'CubeTable',
       height: 0,
@@ -144,7 +144,7 @@ export default {
     config: {
       // 属性传入改变的时候合并
       immediate: true,
-      handler(val) {
+      handler (val) {
         const { config, initConfig } = this
         this.initConfig = deepMerge(initConfig, config || {})
         this.$nextTick(() => {
@@ -158,7 +158,7 @@ export default {
     },
     extraParam: {
       deep: true,
-      handler(val) {
+      handler (val) {
         this.$nextTick(() => {
           setTimeout(() => {
             this.fetchList()
@@ -167,22 +167,22 @@ export default {
       }
     }
   },
-  mounted() {
+  mounted () {
     const { loadType } = this.initConfig.table
     if (loadType === 'list') {
       this.debounceLoadMore = debounce(1000, () => this.debounceLoadMoreFn())
     }
   },
   methods: {
-    fetchList() {
+    fetchList () {
       const searchParams = this.$refs.SearchBar ? this.$refs.SearchBar.getSearchParams() : {}
       this.fetchTableData(searchParams)
     },
-    guid() {
-      function s4() { return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1) }
+    guid () {
+      function s4 () { return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1) }
       return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4()
     },
-    createLoadingFn() {
+    createLoadingFn () {
       // const { loadingText, loadingIcon, loadingBackground } = this.initConfig.loading
       // const el = this.$el.querySelector('.cubeMaxHeight')
       // this.createLoading = Loading.service({
@@ -195,13 +195,13 @@ export default {
       // })
       this.loading = true
     },
-    afterLoadSelectFirstFn(list = []) {
+    afterLoadSelectFirstFn (list = []) {
       const { initSeletTheFirst } = this.initConfig.table
       if (list.length && initSeletTheFirst) {
         this.$refs.CubeTable.setCurrent(list[0])
       }
     },
-    fetchTableData(searchParams = {}, page = 0) {
+    fetchTableData (searchParams = {}, page = 0) {
       const { url, method } = this.initConfig
       if (!url) return
       const { loadType, rowKey, tableDataType } = this.initConfig.table
@@ -280,43 +280,43 @@ export default {
         })
       })
     },
-    handlerReset(searchParams) {
+    handlerReset (searchParams) {
       this.initConfig.table.data = []
       this.initConfig.pagination.total = 0
       this.initConfig.pagination.currentPage = 1
       this.fetchTableData(searchParams)
     },
-    debounceLoadMoreFn() {
+    debounceLoadMoreFn () {
       let { currentPage } = this.initConfig.pagination
       currentPage++
       const searchParams = this.$refs.SearchBar ? this.$refs.SearchBar.getSearchParams() : {}
       this.fetchTableData(searchParams, currentPage)
     },
-    handleSizeChange(value) {
+    handleSizeChange (value) {
       this.initConfig.pagination.size = value
       const searchParams = this.$refs.SearchBar ? this.$refs.SearchBar.getSearchParams() : {}
       this.fetchTableData(searchParams)
     },
-    handleCurrentChange(value) {
+    handleCurrentChange (value) {
       const searchParams = this.$refs.SearchBar ? this.$refs.SearchBar.getSearchParams() : {}
       this.fetchTableData(searchParams, value)
     },
-    getTableSelection() {
+    getTableSelection () {
       return this.$refs[this.name] ? this.$refs[this.name].getTableSelection() || [] : []
     },
-    getSearchParams() {
+    getSearchParams () {
       return this.$refs.SearchBar ? this.$refs.SearchBar.getSearchParams() || null : null
     },
-    tableRowClick(row) {
+    tableRowClick (row) {
       this.$emit('tableRowClick', row)
     },
-    dbtableRowClick(row) {
+    dbtableRowClick (row) {
       this.$emit('dbtableRowClick', row)
     },
-    expandChange(row, expandedRows) {
+    expandChange (row, expandedRows) {
       this.$emit('expandChange', row, expandedRows)
     },
-    getCubeTbale() {
+    getCubeTbale () {
       return this.$refs[this.name] && this.$refs[this.name]
     }
   }

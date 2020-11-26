@@ -1,7 +1,7 @@
 /*
  * @Author: shiliangL
  * @Date: 2020-10-14 10:31:59
- * @LastEditTime: 2020-10-17 19:48:12
+ * @LastEditTime: 2020-11-26 12:12:03
  * @LastEditors: Do not edit
  * @Description:
  * @FilePath: /topevery-element-pro/build-entry.js
@@ -13,7 +13,7 @@ var uppercamelcase = require('uppercamelcase')
 var path = require('path')
 var endOfLine = require('os').EOL
 
-var OUTPUT_PATH = path.join(__dirname, 'packages/index.js')
+var OUTPUT_PATH = path.join(__dirname, 'src/index.js')
 var IMPORT_TEMPLATE = 'import {{name}} from \'./{{package}}/index.js\';'
 var INSTALL_COMPONENT_TEMPLATE = '  {{name}}'
 
@@ -24,25 +24,31 @@ import { Loading } from 'element-ui';
 
 const components = [
   {{install}}
-];
+]
 
 const install = function(Vue, opts = {}) {
   components.forEach(component => {
     Vue.component(component.name, component);
-  });
+  })
 };
 
 /* istanbul ignore if */
 if (typeof window !== 'undefined' && window.Vue) {
-  install(window.Vue);
-  Vue.use(Loading.directive);
+  install(window.Vue)
+  window.Vue.use(Loading.directive)
+}
+
+/* Automatically export  */
+export {
+  install,
+{{list}}
 }
 
 export default {
   version: '{{version}}',
   install,
 {{list}}
-};
+}
 `
 
 var ComponentNames = Object.keys(Components)

@@ -19,23 +19,22 @@ const components = [
   CubeTableList,
   CubeTitle,
   CubeProgress
-];
+]
 
 const install = function(Vue, opts = {}) {
   components.forEach(component => {
     Vue.component(component.name, component);
-  });
+  })
 };
 
 /* istanbul ignore if */
 if (typeof window !== 'undefined' && window.Vue) {
-  install(window.Vue);
-  Vue.use(Loading.directive);
+  install(window.Vue)
+  window.Vue.use(Loading.directive)
 }
 
 /* Automatically export  */
 export {
-  version: '0.1.1-0',
   install,
   CubeSelect,
   CubeSelectTree,
@@ -45,7 +44,7 @@ export {
   CubeTableList,
   CubeTitle,
   CubeProgress
-};
+}
 
 export default {
   version: '0.1.1-0',
@@ -58,4 +57,4 @@ export default {
   CubeTableList,
   CubeTitle,
   CubeProgress
-};
+}

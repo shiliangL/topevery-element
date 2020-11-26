@@ -1,7 +1,7 @@
 /*
  * @Author: shiliangL
  * @Date: 2020-10-14 10:13:13
- * @LastEditTime: 2020-11-21 10:24:30
+ * @LastEditTime: 2020-11-26 11:31:12
  * @LastEditors: Do not edit
  * @Description:
  * @FilePath: /topevery-element-pro/src/main.js
@@ -17,7 +17,7 @@ import router from './router'
 import './plugins/element.js'
 import './lib/index.js'
 
-import topeveryUi from '~/index.js'
+import topeveryUi from './index.js'
 import demoBlock from './components/demo-block'
 
 Vue.component('demo-block', demoBlock)
