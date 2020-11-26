@@ -273,7 +273,6 @@ export default {
     ElDropdown: Dropdown,
     ElDropdownItem: DropdownItem,
     ElDropdownMenu: DropdownMenu
-
     // CubeMoreType,
     // CubeSelect,
     // CubeCascader,

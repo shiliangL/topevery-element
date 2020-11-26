@@ -16,16 +16,12 @@
                 "title": "cube-select 下拉选择"
               },
               {
-                "path": "/cube-select-bar",
-                "title": "cube-select-bar 静态选择"
-              },
-              {
                 "path": "/cube-select-tree",
                 "title": "cube-select-tree 树形选择"
               },
               {
                 "path": "/cube-cascader",
-                "title": "cube-cascader cube级联"
+                "title": "cube-cascader 级联选择"
               },
               {
                 "path": "/cube-search-bar",
@@ -33,11 +29,24 @@
               },
               {
                 "path": "/cube-table",
-                "title": "cube-table 表格"
+                "title": "cube-table 单表格"
               },
               {
                 "path": "/cube-table-list",
-                "title": "cube-table-list 组件"
+                "title": "cube-table-list 列表组件"
+              }
+            ]
+          },
+          {
+            "groupName": "其他",
+            "list": [
+              {
+                "path": "/cube-title",
+                "title": "cube-title 标题栏"
+              },
+              {
+                "path": "/cube-progress",
+                "title": "cube-progress 进度条"
               }
             ]
           }

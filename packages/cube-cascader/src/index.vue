@@ -1,8 +1,6 @@
 <!-- 选择组件 提供分页检索选择应数据量大列表卡顿以及分页接口数据选择 -->
 <template>
   <el-cascader
-    popper-class="cubeCascader-popper"
-    class="cubeCascader"
     :clearable="true"
     v-model="selectValue"
     :disabled="disabled"
@@ -166,11 +164,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-.cubeCascader-popper {
-  /deep/.is-empty {
-    padding: 14px 0;
-  }
-}
-</style>

@@ -1,7 +1,7 @@
 /*
  * @Author: shiliangL
  * @Date: 2020-10-14 10:16:23
- * @LastEditTime: 2020-11-21 11:40:27
+ * @LastEditTime: 2020-11-25 21:28:21
  * @LastEditors: Do not edit
  * @Description:
  * @FilePath: /topevery-element-pro/vue.config.js
@@ -32,6 +32,7 @@ module.exports = {
     config.resolve.alias
       .set('~', path.resolve('packages'))
       .set('~md', path.resolve('md-docs'))
+      .set('~packages', path.resolve('packages'))
     // 把 packages 加入编译，因为新增的文件默认是不被 webpack 处理的
     // config.module
     //   .rule('js')
@@ -58,22 +59,22 @@ module.exports = {
       .loader(require('path').resolve(__dirname, './scripts/md-loader/index.js'))
       .end()
 
-    config.optimization.splitChunks({
-      chunks: 'all',
-      maxInitialRequests: Infinity,
-      // 依赖包超过300000bit将被单独打包
-      minSize: 300000,
-      automaticNameDelimiter: '-',
-      cacheGroups: {
-        vendor: {
-          test: /[\\/]node_modules[\\/]/,
-          name (module) {
-            const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1]
-            return `chunk.${packageName.replace('@', '')}`
-          },
-          priority: 10
-        }
-      }
-    })
+    // config.optimization.splitChunks({
+    //   chunks: 'all',
+    //   maxInitialRequests: Infinity,
+    //   // 依赖包超过300000bit将被单独打包
+    //   minSize: 300000,
+    //   automaticNameDelimiter: '-',
+    //   cacheGroups: {
+    //     vendor: {
+    //       test: /[\\/]node_modules[\\/]/,
+    //       name (module) {
+    //         const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1]
+    //         return `chunk.${packageName.replace('@', '')}`
+    //       },
+    //       priority: 10
+    //     }
+    //   }
+    // })
   }
 }

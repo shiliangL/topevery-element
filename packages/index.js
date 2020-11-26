@@ -3,16 +3,22 @@ import { Loading } from 'element-ui';
 
 import CubeSelect from './cube-select/index.js';
 import CubeSelectTree from './cube-select-tree/index.js';
-import CubeCascader from './cube-cascader/index.js';
 import CubeSearchBar from './cube-search-bar/index.js';
+import CubeCascader from './cube-cascader/index.js';
 import CubeTable from './cube-table/index.js';
+import CubeTableList from './cube-table-list/index.js';
+import CubeTitle from './cube-title/index.js';
+import CubeProgress from './cube-progress/index.js';
 
 const components = [
     CubeSelect,
   CubeSelectTree,
-  CubeCascader,
   CubeSearchBar,
-  CubeTable
+  CubeCascader,
+  CubeTable,
+  CubeTableList,
+  CubeTitle,
+  CubeProgress
 ];
 
 const install = function(Vue, opts = {}) {
@@ -32,7 +38,10 @@ export default {
   install,
   CubeSelect,
   CubeSelectTree,
-  CubeCascader,
   CubeSearchBar,
-  CubeTable
+  CubeCascader,
+  CubeTable,
+  CubeTableList,
+  CubeTitle,
+  CubeProgress
 };
