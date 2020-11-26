@@ -28,12 +28,11 @@ externals = [Object.assign({
 exports.externals = externals
 
 exports.alias = {
+  '@': path.resolve(__dirname, '../src'),
   main: path.resolve(__dirname, '../src'),
   utils: path.resolve(__dirname, '../src/utils'),
   mixins: path.resolve(__dirname, '../src/mixins'),
-  packages: path.resolve(__dirname, '../packages'),
-  '@': path.resolve(__dirname, '../src'),
-  '~packages': path.resolve(__dirname, '../packages')
+  packages: path.resolve(__dirname, '../packages')
 }
 
 exports.vue = {

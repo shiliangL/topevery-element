@@ -1,7 +1,7 @@
 /*
  * @Author: shiliangL
  * @Date: 2020-10-14 10:13:13
- * @LastEditTime: 2020-11-26 11:31:12
+ * @LastEditTime: 2020-11-26 12:37:30
  * @LastEditors: Do not edit
  * @Description:
  * @FilePath: /topevery-element-pro/src/main.js
@@ -14,8 +14,8 @@ import '@/style/index.scss'
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import './plugins/element.js'
 import './lib/index.js'
+// import './plugins/element.js'
 
 import topeveryUi from './index.js'
 import demoBlock from './components/demo-block'

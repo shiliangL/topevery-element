@@ -1,7 +1,7 @@
 /*
  * @Author: shiliangL
  * @Date: 2020-10-14 10:16:23
- * @LastEditTime: 2020-11-26 11:28:05
+ * @LastEditTime: 2020-11-26 12:40:41
  * @LastEditors: Do not edit
  * @Description:
  * @FilePath: /topevery-element-pro/vue.config.js
@@ -28,9 +28,11 @@ module.exports = {
     // @ 默认指向 src 目录
     // 新增一个 ~ 指向 packages
     config.resolve.alias
+      .set('@', path.resolve('src'))
+      .set('main', path.resolve('src'))
+      .set('packages', path.resolve('packages'))
       .set('~', path.resolve('packages'))
       .set('~md', path.resolve('md-docs'))
-      .set('~packages', path.resolve('packages'))
     // 把 packages 加入编译，因为新增的文件默认是不被 webpack 处理的
     // config.module
     //   .rule('js')

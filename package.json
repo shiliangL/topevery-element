@@ -1,6 +1,6 @@
 {
   "name": "cube-element",
-  "version": "0.1.1-0",
+  "version": "0.1.1-1",
   "private": false,
   "description": "A Component Library for Vue.js.",
   "main": "lib/cube-element.common.js",
@@ -12,7 +12,7 @@
   "scripts": {
     "build:file": "node build-entry.js",
     "build:lib-cli": "vue-cli-service build --target lib --name cube-element --dest lib src/index.js",
-    "build:lib": "npm run build:file && webpack --config build/webpack.conf.js && webpack --config build/webpack.common.js && webpack --config build/webpack.component.js",
+    "build:lib": "webpack --config build/webpack.common.js && webpack --config build/webpack.component.js",
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
@@ -44,6 +44,7 @@
     "eslint-plugin-vue": "^6.2.2",
     "js-cookie": "2.2.0",
     "json-templater": "^1.0.4",
+    "mini-css-extract-plugin": "^0.4.1",
     "markdown-it": "^12.0.0",
     "markdown-it-anchor": "^6.0.0",
     "markdown-it-chain": "^1.3.0",
