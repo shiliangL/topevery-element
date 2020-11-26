@@ -74,9 +74,9 @@ import { Loading, Pagination } from 'element-ui'
 import { deepMerge } from '@/utils/index'
 import emitter from '@/mixins/emitter'
 
-import CubeSearchBar from '~packages/cube-search-bar'
-import CubeTable from '~packages/cube-table'
-import CubeMaxHeight from '~packages/cube-max-height'
+import CubeSearchBar from 'packages/cube-search-bar'
+import CubeTable from 'packages/cube-table'
+import CubeMaxHeight from 'packages/cube-max-height'
 
 export default {
   name: 'CubeTableList',
